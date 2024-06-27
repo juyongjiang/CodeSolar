@@ -1,0 +1,6 @@
+predibase
+datasets
+langchain 
+langchain-upstage 
+solar-as-judge
+fire

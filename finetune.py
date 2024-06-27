@@ -16,7 +16,10 @@ def pb_finetune(
     base_model_name="solar-1-mini-chat-240612", 
     pb_dataset_name=None, 
     hf_dataset_name="ise-uiuc/Magicoder-OSS-Instruct-75K", 
-    repo_name="codesolar-v1-adapter"
+    repo_name="codesolar-v1-adapter",
+    epoch=1,
+    learning_rate=0.0001,
+    rank=8
 ):
     # Load the dataset
     if pb_dataset_name:
@@ -32,10 +35,10 @@ def pb_finetune(
     adapter = pb.adapters.create(
         config=FinetuningConfig(
             base_model=base_model_name,
-            epochs=1, # default: 3
-            learning_rate=0.0001, # default: 0.0002
+            epochs=epoch, # default: 3
+            learning_rate=learning_rate, # default: 0.0002
             # if employing LoRA fine-tuning, set the following parameters (Check!)
-            rank=1, # default: 16
+            rank=rank, # default: 16
             # target_modules=["q_proj", "v_proj", "k_proj"], # default: None (infers [q_proj, v_proj] for mistral-7b)
         ),
         dataset=pb_dataset, # Also accepts the dataset name as a string

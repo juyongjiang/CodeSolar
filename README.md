@@ -51,7 +51,10 @@ template = {
 python finetune.py \
         --base_model_name="solar-1-mini-chat-240612" \
         --pb_dataset_name="magicoder-oss-instruct-75k" \
-        --repo_name="codesolar-v1-adapter"
+        --repo_name="codesolar-v1-adapter" \
+        --epoch=1 \
+        --learning_rate=0.0001 \
+        --rank=8
 ```
 
 For debugging, please use `magicoder-oss-instruct-75k-100`, only 100 examples will be used. 
@@ -62,7 +65,10 @@ For debugging, please use `magicoder-oss-instruct-75k-100`, only 100 examples wi
 python finetune.py \
         --base_model_name="solar-1-mini-chat-240612" \
         --hf_dataset_name="ise-uiuc/Magicoder-OSS-Instruct-75K" \
-        --repo_name="codesolar-v1-adapter"
+        --repo_name="codesolar-v1-adapter" \
+        --epoch=1 \
+        --learning_rate=0.0001 \
+        --rank=8
 ```
 
 

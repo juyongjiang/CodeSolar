@@ -23,9 +23,9 @@ def pb_finetune(
 ):
     # Load the dataset
     if pb_dataset_name:
-        pb_dataset = load_processed_dataset(pb, pb_dataset_name) # only 100 examples for testing while magicoder-oss-instruct-75k with all
+        pb_dataset = load_processed_dataset(pb, pb_dataset_name=pb_dataset_name) # only 100 examples for testing while magicoder-oss-instruct-75k with all
     elif hf_dataset_name:
-        pb_dataset = load_processed_dataset(pb, hf_dataset_name)
+        pb_dataset = load_processed_dataset(pb, hf_dataset_name=hf_dataset_name)
     
     # Create an adapter repository
     repo = pb.repos.create(name=repo_name, description=f"Create {repo_name} repository...", exists_ok=True)

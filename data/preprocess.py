@@ -52,7 +52,7 @@ def load_processed_dataset(predibase, pb_dataset_name=None, hf_dataset_name=None
             print(f"Dataset found at Predibase: {pb_dataset}")
         except:
             print(f"Dataset not found in Predibase, please use HuggingFace dataset name!")
-    elif hf_dataset_name:
+    elif pb_dataset_name is None and hf_dataset_name:
         print(f"Dataset found at HuggingFace: {hf_dataset_name}")
 
         dataset_name = hf_dataset_name.split('/')[-1].lower() + "" if max==-1 else hf_dataset_name.split('/')[-1].lower() + f"-{max}"
